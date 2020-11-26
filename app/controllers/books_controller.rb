@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.all
+    @books = Book.all.includes(:authors)
   end
 
   def show
@@ -41,11 +41,11 @@ class BooksController < ApplicationController
 
 private
   def set_book
-    @book = Book.find(params[:id])
+    @book = Book.find(params[:id]).includes(:authors)
   end
 
   def book_params
-    params.require(:book).permit(:title, :author, :isbn, :asin)
+    params.require(:book).permit(:title, :isbn, :asin)
   end
 
 end
