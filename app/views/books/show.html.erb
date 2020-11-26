@@ -1,0 +1,22 @@
+<p>
+  <strong>Titulo:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Autor:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>ISBN:</strong>
+  <%= @book.isbn %>
+</p>
+
+<p>
+  <strong>ASIN:</strong>
+  <%= @book.asin %>
+</p>
+
+<%= link_to 'Editar', edit_book_path(@book) %>
+<%= link_to 'Regresar', books_path %>

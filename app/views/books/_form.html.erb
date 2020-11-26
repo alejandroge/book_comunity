@@ -1,0 +1,38 @@
+<%= form_with(model: @book, local: true) do |form| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@book.errors.count, 'error') %> prohibited this article from being saved:
+      </h2>
+      <ul>
+        <% @book.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :title, 'Titulo' %><br/>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :author, 'Autor' %><br/>
+    <%= form.text_field :author %>
+  </p>
+
+  <p>
+    <%= form.label :isbn, 'ISBN' %><br/>
+    <%= form.text_field :isbn %>
+  </p>
+
+  <p>
+    <%= form.label :asin, 'ASIN' %><br/>
+    <%= form.text_field :asin %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

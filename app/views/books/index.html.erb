@@ -1,0 +1,36 @@
+<h1>Mostrando Libros</h1>
+
+<%= link_to 'Agregar nuevo libro', new_book_path %>
+
+<table>
+  <tr>
+    <tr>
+      <th>Titulo</th>
+      <th>Autor</th>
+      <th>ISBN</th>
+      <th>ASIN</th>
+      <th></th>
+    </tr>
+  </tr>
+
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.author %></td>
+      <td><%= book.isbn %></td>
+      <td><%= book.asin %></td>
+      <td><%= link_to 'Mostrar', book_path(book) %></td>
+      <td><%= link_to 'Editar', edit_book_path(book) %></td>
+      <td>
+        <%=
+          link_to(
+            'Borrar',
+            book_path(book),
+            method: :delete,
+            data: { confirm: '¿Estás seguro?' }
+          )
+        %>
+      </td>
+    </tr>
+  <% end %>
+</table>
